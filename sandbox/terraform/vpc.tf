@@ -5,6 +5,6 @@ resource "aws_vpc" "main" {
   instance_tenancy = "default"
 
   tags = {
-    Name = "main"
+    Name = "${data.aws_caller_identity.current_vpc.account_id}"
   }
 }
