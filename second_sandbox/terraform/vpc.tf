@@ -5,16 +5,16 @@ data "aws_ssm_parameter" "azs" {
 }
 
 data "aws_ssm_parameter" "vpc_cidr" {
-  name = "/path/to/vpc_cidr"
+  name = "/aft/account-request/custom-fields/vpc_cidr"
 }
 
 data "aws_ssm_parameter" "vpc_private_subnets" {
-  name = "/path/to/vpc_private_subnets"
+  name = "/aft/account-request/custom-fields/vpc_private_subnets"
 }
 
 
 data "aws_ssm_parameter" "vpc_public_subnets" {
-  name = "/path/to/vpc_public_subnets"
+  name = "/aft/account-request/custom-fields/vpc_public_subnets"
 }
 
 resource "aws_vpc" "main_second_sandbox" {
