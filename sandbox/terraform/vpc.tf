@@ -8,3 +8,4 @@ resource "aws_vpc" "main" {
     Name = "${data.aws_caller_identity.current_vpc.account_id}"
   }
 }
+
