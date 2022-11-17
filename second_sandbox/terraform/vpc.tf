@@ -29,7 +29,7 @@ resource "aws_vpc" "main_second_sandbox" {
 
 
 resource "aws_subnet" "private_subnet_main_second_sandbox" {
-  vpc_id     = aws_vpc.main.id
+  vpc_id     = aws_vpc.main_second_sandbox.id
   cidr_block = data.aws_ssm_parameter.vpc_private_subnets.value
 
   tags = {
@@ -38,7 +38,7 @@ resource "aws_subnet" "private_subnet_main_second_sandbox" {
 }
 
 resource "aws_subnet" "public_subnet_main_second_sandbox" {
-  vpc_id     = aws_vpc.main.id
+  vpc_id     = aws_vpc.main_second_sandbox.id
   cidr_block = data.aws_ssm_parameter.vpc_public_subnets.value
 
   tags = {
