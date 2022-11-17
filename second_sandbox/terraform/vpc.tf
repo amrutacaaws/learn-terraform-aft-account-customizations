@@ -19,7 +19,7 @@ data "aws_ssm_parameter" "vpc_public_subnets" {
 
 resource "aws_vpc" "main_second_sandbox" {
   # cidr_block       = "10.0.0.0/16"
-  cidr_block       = data.aws_ssm_parameter.ami.vpc_cidr
+  cidr_block       = data.aws_ssm_parameter.vpc_cidr.value
   instance_tenancy = "default"
 
   tags = {
