@@ -38,7 +38,7 @@ resource "aws_subnet" "private_subnet_main_second_sandbox" {
   # cidr_block = split(",", data.aws_ssm_parameter.vpc_private_subnets.value)
 
   tags = {
-    Name = "private_subnet_main_second_sandbox.${count}"
+    Name = "private_subnet_main_second_sandbox"
   }
 }
 
