@@ -46,9 +46,9 @@ resource "aws_vpc" "main_second_sandbox" {
 
 
 resource "aws_subnet" "private_subnet_main_second_sandbox" {
-  count                   = "${length(data.aws_ssm_parameter.vpc_private_subnets.value)}"
+  # count                   = "${length(data.aws_ssm_parameter.vpc_private_subnets.value)}"
   vpc_id                  = "${aws_vpc.main_second_sandbox.id}"
-  cidr_block              = "${data.aws_ssm_parameter.vpc_private_subnets.value[count.index]}"
+  cidr_block              = "${data.aws_ssm_parameter.vpc_private_subnets.value}"
   # availability_zone       = "${data.data.aws_ssm_parameter.azs.value}"
   map_public_ip_on_launch = false
 }
