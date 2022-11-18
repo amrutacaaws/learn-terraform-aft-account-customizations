@@ -29,8 +29,14 @@ resource "aws_vpc" "main_second_sandbox" {
 
 
 resource "aws_subnet" "private_subnet_main_second_sandbox" {
+  # count = 3
+  # name  = "private_subnet_main_second_sandbox.${count.index}"
+
+  count = length(data.aws_ssm_parameter.vpc_private_subnets.value)
+  name  = "private_subnet_main_second_sandbox.${count}"
+  cidr_block = data.aws_ssm_parameter.vpc_private_subnets.value[count.index]
   vpc_id     = aws_vpc.main_second_sandbox.id
-  cidr_block = split(",", data.aws_ssm_parameter.vpc_private_subnets.value)
+  # cidr_block = split(",", data.aws_ssm_parameter.vpc_private_subnets.value)
 
   tags = {
     Name = "private_subnet_main_second_sandbox"
